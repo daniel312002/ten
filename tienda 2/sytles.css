@@ -1,0 +1,67 @@
+
+.header {
+    background-color: #ff9800;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.logo {
+    font-size: 24px;
+    margin: 0;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-list li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: white;
+}
+
+
+.menu {
+    margin: 20px;
+}
+
+.dish {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+.dish img {
+    max-width: 100%;
+}
+
+.price {
+    font-weight: bold;
+    color: #ff9800;
+}
+
+button {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f57c00;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}

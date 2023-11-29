@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos para el cuerpo de la página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilos para el encabezado */
+        header {
+            background-color: #ff0000;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-size: 36px;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: rgb(232, 232, 232);
+        }
+
+        /* Estilos para la sección de menú */
+        .menu {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 0 10px rgba(0, 76, 255, 0);
+        }
+
+        .menu h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .dish {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+        }
+
+        .dish img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .dish h3 {
+            font-size: 20px;
+            color: #ff5100;
+        }
+
+        .dish p {
+            color: #020202;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #ff5733;
+        }
+
+        button {
+            background-color: #ff5733;
+            color: rgb(255, 255, 255);
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #d84315;
+        }
+
+    
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #ff0000;
+            color: rgb(235, 235, 235);
+        }
+    </style>
+    <title>Menú - El Palacio del Pollo Crujiente</title>
+</head>
+<body>
+    <header>
+        <h1>El Palacio del Pollo Crujiente</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="carrito.html">carrito</a></li>
+                <li><a href="pedidos.html">Pedidos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="pedidos_guardados.html">pedidos guardados</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="menu">
+        <h2>Nuestro Menú</h2>
+
+        <article class="dish">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-f8j0XsQ-FQrZ23nxbAA49U8JOqHIq-0yrQ&usqp=CAU" alt="Plato 1">
+            <h3>Plato 1</h3>
+            <p>Descripción del plato.</p>
+            <p class="price">$17.99</p>
+            <button onclick="agregarAlCarrito('Plato 1', 10.99)">Agregar al Carrito</button>
+        </article>
+        <article class="dish">
+            <img src="https://images.getduna.com/2bb258f4-051d-4a46-9321-b0a7a857cd71/0cc71f79bc9f4965_53C7D1B6-AC4E-E611-80CF-0050568602D0_744x744.png?d=300x300&format=webp" alt="Plato 2">
+            <h3>Plato 2</h3>
+            <p>Descripción del plato.</p>
+            <p class="price">$12.99</p>
+            <button onclick="agregarAlCarrito('Plato 2', 12.99)">Agregar al Carrito</button>
+        </article>
+        <article class="dish">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV4Gp50z12HF9gqvvcUvGVUFwH89vjA_jZnw&usqp=CAU" alt="Plato 3">
+            <h3>Plato 3</h3>
+            <p>Descripción del plato.</p>
+            <p class="price">5.99</p>
+            <button onclick="agregarAlCarrito('Plato 3', 10.99)">Agregar al Carrito</button>
+        </article>
+        <article class="dish">
+            <img src="https://images.getduna.com/2bb258f4-051d-4a46-9321-b0a7a857cd71/8599319bd74f59e7_domicilio_45799_745x745_1673284944.png?d=300x300&format=webp" alt="Plato 4">
+            <h3>Plato 4</h3>
+            <p>Descripción del plato.</p>
+            <p class="price">$19.99</p>
+            <button onclick="agregarAlCarrito('Plato 4', 10.99)">Agregar al Carrito</button>
+        </article>
+    </section>
+  
+      
+    
+    <script>
+      function agregarAlCarrito(nombrePlato, precioPlato) {
+    const item = { nombre: nombrePlato, precio: precioPlato };
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    carrito.push(item);
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    mostrarCarrito();
+    alert(`Has agregado ${nombrePlato} al carrito por ${precioPlato}`);
+}
+
+    </script>
+    
+
+    <footer>
+        <p>&copy; 2023 El Palacio del Pollo Crujiente</p>
+    </footer>
+</body>
+</html>
+

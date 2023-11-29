@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('imagenes/digi.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+           
+            border-radius: 25px;
+            box-shadow: 0 25px 5px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 6px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 45px;
+            background-color: #f2f2f2;
+            color: #33333300;
+            opacity: calc(0.5);
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            animation: neon 1s infinite alternate;
+            outline: none;
+        }
+
+        @keyframes neon {
+            to {
+                box-shadow: 0 0 100px rgba(258, 0, 211, 0.7);
+            }
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #007bff;
+        }
+
+        .error {
+            color: red;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Iniciar Sesión</h2>
+        <form id="login-form">
+            <label for="username">Nombre de Usuario:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+
+            <div class="error" id="error-message"></div>
+
+            <button type="button" id="login-button">Iniciar Sesión</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('login-button').addEventListener('click', function () {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'Daniel' && password === 'digimon') {
+
+                window.location.href = 'index.html';
+            } else {
+                const errorMessage = document.getElementById('error-message');
+                errorMessage.textContent = 'Nombre de usuario o contraseña incorrectos.';
+            }
+        });
+    </script>
+    <audio autoplay loop>
+        <source src="Alex On The Spot.mp3" type="audio/mpeg">
+        Tu navegador no admite la reproducción de audio.
+    </audio>
+</body>
+
+</html>

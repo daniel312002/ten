@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ff0000;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-size: 36px;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .pedido {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #ff0000;
+            color: white;
+        }
+    </style>
+    <title>Pedidos Guardados - El Palacio del Pollo Crujiente</title>
+</head>
+<body>
+    <header>
+        <h1>El Palacio del Pollo Crujiente</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="menu.html">Menú</a></li>
+                <li><a href="pedidos.html">Pedidos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    
+
+    <section class="content">
+        <h2>Pedidos Guardados</h2>
+        <div id="pedidosContainer">
+         
+        </div>
+    </section>
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const pedidosContainer = document.getElementById("pedidosContainer");
+            const pedidosGuardados = JSON.parse(localStorage.getItem('pedidosGuardados')) || [];
+    
+            if (pedidosGuardados.length === 0) {
+                pedidosContainer.innerHTML = "<p>No hay pedidos guardados.</p>";
+            } else {
+                pedidosGuardados.forEach(function (pedido, index) {
+                    const pedidoElement = document.createElement("div");
+                    pedidoElement.classList.add("pedido");
+                    pedidoElement.innerHTML = `
+                        <h3>Pedido ${index + 1}</h3>
+                        <p><strong>Nombre:</strong> ${pedido.nombre}</p>
+                        <p><strong>Dirección de entrega:</strong> ${pedido.direccion}</p>
+                        <p><strong>Pedido:</strong> ${pedido.pedido}</p>
+                    `;
+                    pedidosContainer.appendChild(pedidoElement);
+                });
+            }
+        });
+    </script>
+    <script>
+        function eliminarPedido(index) {
+            const pedidosGuardados = JSON.parse(localStorage.getItem('pedidosGuardados')) || [];
+            pedidosGuardados.splice(index, 1);
+            localStorage.setItem('pedidosGuardados', JSON.stringify(pedidosGuardados));
+            mostrarPedidos();
+        }
+    
+        function mostrarPedidos() {
+            const pedidosContainer = document.getElementById("pedidosContainer");
+            const pedidosGuardados = JSON.parse(localStorage.getItem('pedidosGuardados')) || [];
+    
+            if (pedidosGuardados.length === 0) {
+                pedidosContainer.innerHTML = "<p>No hay pedidos guardados.</p>";
+            } else {
+                pedidosContainer.innerHTML = ""; 
+    
+                pedidosGuardados.forEach(function (pedido, index) {
+                    const pedidoElement = document.createElement("div");
+                    pedidoElement.classList.add("pedido");
+                    pedidoElement.innerHTML = `
+                        <h3>Pedido ${index + 1}</h3>
+                        <p><strong>Nombre:</strong> ${pedido.nombre}</p>
+                        <p><strong>Dirección de entrega:</strong> ${pedido.direccion}</p>
+                        <p><strong>Pedido:</strong> ${pedido.pedido}</p>
+                        <button onclick="eliminarPedido(${index})">Eliminar</button>
+                    `;
+                    pedidosContainer.appendChild(pedidoElement);
+                });
+            }
+        }
+    
+        document.addEventListener("DOMContentLoaded", function () {
+            mostrarPedidos();
+        });
+    </script>
+    
+    <footer>
+        <p>&copy; 2023 El Palacio del Pollo Crujiente</p>
+    </footer>
+</body>
+</html>

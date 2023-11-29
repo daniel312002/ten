@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #f7f7f7; 
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ff0000;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .hero {
+            background-image: url('hero-background.jpg'); 
+            background-size: cover;
+            text-align: center;
+            color: #fff;
+            padding: 100px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: rgb(255, 98, 0); 
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .menu {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .dish {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgb(255, 0, 0);
+        }
+
+        .dish img {
+            max-width: 100%;
+        }
+
+        .price {
+            font-weight: bold;
+            color: rgb(255, 3, 3);
+        }
+
+        footer {
+            background-color: #ff0000;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+    <title>El Palacio del Pollo Crujiente</title>
+</head>
+<body>
+    <header>
+        <h1>El Palacio del Pollo Crujiente</h1>
+        <nav>
+            <ul>
+            
+             
+                <li><a href="pedidos.html">Pedidos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="pedidos_guardados.html">pedidos guardados</a></li>
+                <li><a href="pedidos.html">Pedidos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" style="color: black;">
+        <h2>¡Bienvenido a Nuestro Restaurante!</h2>
+        <p>Descubre nuestra deliciosa selección de platos.</p>
+        <a href="menu.html" class="cta-button">Ver Menú</a>
+    </section>
+    
+   
+    <section class="menu">
+        <h2>Nuestro Menú Destacado</h2>
+
+        <article class="dish">
+            <img src="https://images.getduna.com/2bb258f4-051d-4a46-9321-b0a7a857cd71/8599319bd74f59e7_domicilio_402_745x745_1692547713.png?d=400x400&format=webp" alt="Plato 1">
+            <h3>Combo 1</h3>
+            <p>Piernas de pollo con papas fritas, acompañado con gaciosa  .</p>
+            <p class="price">$18.99</p>
+        </article>
+        <article class="dish">
+            <img src="https://images.getduna.com/2bb258f4-051d-4a46-9321-b0a7a857cd71/28ffb090453d0620_domicilio_427_744x744_1687814577.png?d=400x400&format=webp" alt="Plato 2">
+            <h3>Plato 2</h3>
+            <p>Descripción del plato.</p>
+            <p class="price">$12.99</p>
+        </article>
+    
+    </section>
+    
+      
+    <footer>
+        <p>&copy; 2023 El Palacio del Pollo Crujiente</p>
+    </footer>
+</body>
+</html>

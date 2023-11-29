@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        header {
+            background-color: #ff0000;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-size: 36px;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+     
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .cart-item {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+        }
+
+        .cart-item img {
+            max-width: 100px;
+            height: auto;
+            float: left;
+            margin-right: 20px;
+        }
+
+        .cart-item h3 {
+            font-size: 20px;
+            color: #333;
+        }
+
+        .cart-item p {
+            color: #666;
+        }
+
+        .cart-item .price {
+            font-weight: bold;
+            color: #ff5733;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #ff0000;
+            color: white;
+        }
+    </style>
+    <title>Carrito de Compras - El Palacio del Pollo Crujiente</title>
+</head>
+<body>
+    <header>
+        <h1>Mi Sitio de Comida</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="menu.html">Menú</a></li>
+                <li><a href="pedidos.html">pedidos</a></li>
+                <li><a href="pedidos_guardados.html">pedidos guardados</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="content">
+        <h2>Carrito de Compras</h2>
+       
+        <div id="carrito"></div>
+    </section>
+    <script>
+       function mostrarCarrito() {
+    const carritoDiv = document.getElementById("carrito");
+    carritoDiv.innerHTML = "";
+
+    
+    const carritoLocalStorage = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    carritoLocalStorage.forEach((item, index) => {
+        const cartItemDiv = document.createElement("div");
+        cartItemDiv.classList.add("cart-item");
+
+        const itemName = document.createElement("h3");
+        itemName.textContent = item.nombre;
+
+        const itemPrice = document.createElement("p");
+        itemPrice.classList.add("price");
+        itemPrice.textContent = `$${item.precio.toFixed(2)}`;
+
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Quitar del carrito";
+        removeButton.addEventListener("click", () => {
+            carritoLocalStorage.splice(index, 1);
+            localStorage.setItem('carrito', JSON.stringify(carritoLocalStorage));
+            mostrarCarrito(); 
+        });
+        cartItemDiv.appendChild(itemName);
+        cartItemDiv.appendChild(itemPrice);
+        cartItemDiv.appendChild(removeButton);
+        carritoDiv.appendChild(cartItemDiv);
+    });
+}
+mostrarCarrito();
+
+        
+    </script>
+    
+    <div id="carrito"></div>
+
+    <footer>
+        <p>&copy; El Palacio del Pollo Crujiente</p>
+    </footer>
+</body>
+</html>
